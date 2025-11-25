@@ -11,7 +11,6 @@ const route = useRoute()
 
 async function getPosts(){
   user.value = route.params.user 
-  /*  add your code here */
   const postRef = collection(db, "posts")
   const querySnapshot = query(postRef, where("user", "==", user.value))
   const unsubscribe = onSnapshot(querySnapshot, (snapshot) => {
@@ -37,10 +36,6 @@ async function getPosts(){
       posts.value.push(data)
     })
   })
-
-
-
-
 
 }
 
